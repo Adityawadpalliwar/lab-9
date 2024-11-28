@@ -5,13 +5,13 @@
     char c;
     printf("Data Input\n\n");
  
-    f1 = fopen("INPUT", "w");
+    f1 = fopen("INPUT.txt", "w");
      while((c=getchar()) != EOF)
         {putc(c,f1);}
     fclose(f1);
     printf("\nData Output\n\n");
  
-    f1 = fopen("INPUT","r");
+    f1 = fopen("INPUT.txt","r");
 
     while((c=getc(f1)) != EOF)
     {printf("%c",c);
