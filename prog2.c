@@ -3,7 +3,7 @@
  {
     FILE *f1;
     int c,i;
-    printf("Data Input\n\n");
+    printf("Data Input\n");
  
     f1 = fopen("DATA", "w");
     for(i=0;i<30;i++)
@@ -11,19 +11,19 @@
     	scanf("%d",&c);
     	if(c==-1)
     	break;
-    	putw(c,f1);
+        fprintf(f1,"%d ",c);
 	}
     fclose(f1);
     f1=fopen("DATA","r");
     FILE *f2,*f3;
     f2=fopen("ODD.txt","w");
     f3=fopen("EVEN.txt","w");
-    while((c=getw(f1))!=EOF)
+    while((fscanf(f1,"%d",&c))!=EOF)
     {
     	if(c%2==0)
-    	putw(c,f3);
+    	fprintf(f3,"%d",c);
     	else
-    	putw(c,f2);
+    	fprintf(f2,"%d",c);
 	}
 	fclose(f1);
 	fclose(f2);
@@ -33,14 +33,14 @@
     printf("ODD values are");
     f1 = fopen("ODD.txt","r");
 
-    while((c=getw(f1)) != EOF)
+    while((fscanf(f1,"%d",&c)) != EOF)
     {printf("%9d",c);
     }
     printf("\n");
     fclose(f1);
     printf("EVEN values are");
     f2 = fopen("EVEN.txt","r");
-    while((c=getw(f2)) != EOF)
+    while((fscanf(f2,"%d",&c)) != EOF)
     {printf("%9d",c);
     }
     fclose(f2);
